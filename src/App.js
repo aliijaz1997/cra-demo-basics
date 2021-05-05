@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Article from './component/Article'
+import LayOut from './component/Layout';
 function App() {
+  const articles = [
+    {
+      id: 1,
+      title: "How to JavaScript",
+      body: "lorem ipsum etc",
+    },
+    {
+      id: 2,
+      title: "How to Typescript",
+      body: "lorem ipsum etc",
+    },
+    {
+      id: 3,
+      title: "How to React",
+      body: "lorem ipsum etc",
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+     <LayOut> 
+      <h1
+      style = {{
+        textAlign: "center",
+        color: 'steelblue'
+    }}
+      >Articles Details</h1>
+     {articles.map((article) => {
+       return <Article key={article.id} title = {article.title} body = {article.body} />
+     })}
+     </LayOut>
+        );
 }
 
 export default App;
